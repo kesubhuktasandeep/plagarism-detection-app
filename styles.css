@@ -1,0 +1,326 @@
+/* Reset some default styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Global styles for the body and HTML */
+html, body {
+	width: 100vw;
+	height: 100vh;
+	background: #151515;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+/* Button styles */
+button, .button {
+	font-family: 'Space Mono', monospace;
+	letter-spacing: 1px;
+	background: none;
+	color: white;
+	position: relative;
+	outline: none;
+	border: none;
+	height: 50px;
+	width: 190px;
+	font-size: 14px;
+	z-index: 2;
+	transition: .01s .23s ease-out all;
+	overflow: hidden;
+}
+
+button:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 55%;
+	background: #202020;
+	z-index: -1;
+	transition: .3s ease-in all;
+}
+
+.logo{
+	height: 60px;
+	width: 60px;
+}
+
+button:after {
+	content: '';
+	position: absolute;
+	left: -5%;
+	top: 5%;
+	height: 90%;
+	width: 5%;
+	background: white;
+	z-index: -1;
+	transition: .4s .02s ease-in all;
+}
+
+button:hover, .button:hover {
+	cursor: pointer;
+	color: transparent;
+}
+
+button:hover:before, .button:hover:before {
+	left: 100%;
+	width: 25%;
+}
+
+button:hover:after, .button:hover:after {
+	left: 100%;
+	width: 70%;
+}
+
+.icon-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.icon-right:after {
+	font-family: "FontAwesome";
+	content: '\2192';
+	font-size: 24px;
+	display: inline-block;
+	position: relative;
+	top: 26px;
+	transform: translate3D(0, -50%, 0);
+}
+
+.icon-right.after:after {
+	left: -80px;
+	color: white;
+	transition: .2s .2s ease all;
+}
+
+.icon-right.after:before {
+	content: 'Explore';
+	position: absolute;
+	left: -104px;
+	top: 14px;
+	opacity: 0.2;
+	color: white;
+	transition: .2s ease-in all;
+}
+
+/* Signature styles */
+.signature {
+	position: fixed;
+	font-family: sans-serif;
+	font-weight: 100;
+	bottom: 10px;
+	left: 0;
+	letter-spacing: 4px;
+	font-size: 10px;
+	width: 100vw;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+/* Common button styles */
+.button {
+	padding: 10px 20px;
+	text-transform: uppercase;
+	border-radius: 8px;
+	font-size: 17px;
+	font-weight: 500;
+	color: #ffffff80;
+	text-shadow: none;
+	background: transparent;
+	box-shadow: transparent;
+	border: 1px solid #ffffff80;
+	transition: 0.5s ease;
+	user-select: none;
+	margin: 10px;
+}
+
+/* Anchor 1 - Text Plagiarism */
+/* Text Plagiarism Button */
+.textPlagiarism {
+	/* Apply common button styles */
+	display: inline-block;
+	text-decoration: none; /* Remove underlines */
+  }
+  
+  .textPlagiarism:hover, .textPlagiarism:focus {
+	color: #ffffff;
+	background: #008cff;
+	border: 1px solid #008cff;
+	text-shadow: 0 0 5px #ffffff,
+	  0 0 10px #ffffff,
+	  0 0 20px #ffffff;
+	box-shadow: 0 0 5px #008cff,
+	  0 0 20px #008cff,
+	  0 0 50px #008cff,
+	  0 0 100px #008cff;
+  }
+  
+  /* Image Plagiarism Button */
+  .imagePlagiarism {
+	/* Apply common button styles */
+	display: inline-block;
+	text-decoration: none; /* Remove underlines */
+  }
+  
+  .imagePlagiarism:hover, .imagePlagiarism:focus {
+	color: #ffffff;
+	background: #ff6b6b; /* Change background color */
+	border: 1px solid #ff6b6b; /* Change border color */
+	text-shadow: 0 0 5px #ffffff,
+	  0 0 10px #ffffff,
+	  0 0 20px #ffffff;
+	box-shadow: 0 0 5px #ff6b6b, /* Change box shadow color */
+	  0 0 20px #ff6b6b,
+	  0 0 50px #ff6b6b,
+	  0 0 100px #ff6b6b;
+  }
+  
+  /* Video Plagiarism Button */
+  .videoPlagiarism {
+	/* Apply common button styles */
+	display: inline-block;
+	text-decoration: none; /* Remove underlines */
+  }
+  
+  .videoPlagiarism:hover, .videoPlagiarism:focus {
+	color: #ffffff;
+	background: #5eff5e; /* Change background color */
+	border: 1px solid #5eff5e; /* Change border color */
+	text-shadow: 0 0 5px #ffffff,
+	  0 0 10px #ffffff,
+	  0 0 20px #ffffff;
+	box-shadow: 0 0 5px #5eff5e, /* Change box shadow color */
+	  0 0 20px #5eff5e,
+	  0 0 50px #5eff5e,
+	  0 0 100px #5eff5e;
+  }
+  
+.vertical-align {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Added style for hiding the buttons initially */
+.vertical-align .button {
+	display: none;
+}
+
+/* Style for Explore Button */
+.explore-button {
+	margin-right: 200px;
+	display: inline-block;
+}
+
+/* Style for Explore Button when focused */
+.explore-button:focus {
+
+	display: inline-block;
+
+}
+
+/* Style for other buttons when Explore Button is focused */
+.explore-button:focus + .vertical-align .button {
+	/* Change the display property to make them visible */
+	display: inline-block;
+}
+
+
+/* CSS for Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Adjust Logo Image Size */
+.logo img {
+    height: 60px;
+    width: 60px;
+    margin-right: 10px; /* Add some space between the image and text */
+}
+
+/* Rest of your CSS styles... */
+/* Style for the header */
+header {
+	background-color:#0f0f0f; /* Set your desired background color */
+    color: white; /* Set the text color */
+    padding: 10px 0; /* Add some padding for spacing */
+    text-align: center; /* Center align the contents */
+    display: flex; /* Use flexbox to control layout */
+    justify-content: space-between; /* Align items with space in between */
+    align-items: center; /* Vertically align items in the center */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Style for the logo */
+.logo-container {
+    display: inline-block; /* Display the logo and text side by side */
+}
+
+.logo img {
+    width: 50px; /* Set the logo image width as per your design */
+    height: 50px; /* Set the logo image height as per your design */
+    vertical-align: middle; /* Align the image vertically in the container */
+	border-radius: 50%;
+}
+
+.logo span {
+    vertical-align: middle; /* Align the text vertically in the container */
+    margin-left: 10px; /* Add some spacing between the logo and text */
+    font-size: 30px; /* Set the font size for the text */
+	color: white;
+}
+
+/* Style for the navigation menu */
+.navigation {
+    list-style-type: none; /* Remove the default list bullets */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center align the navigation items */
+    margin-top: 10px; /* Add some spacing between the logo and navigation */
+}
+
+.navigation li {
+    display: inline; /* Display the list items inline */
+    margin-right: 20px; /* Add spacing between navigation items */
+}
+
+.navigation li a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Set link color */
+    font-size: 18px; /* Set font size for links */
+}
+
+
+.description-box {
+    display: none; /* Hide the white box by default */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 100px; /* Position it below the header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+	font-size: 20px;
+	font-weight:600;
+	
+}
+
+.show-description {
+    display: block; /* Show the white box when this class is applied */
+}
