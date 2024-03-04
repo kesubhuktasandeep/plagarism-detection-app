@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Plagiarism Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_imaage.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Plagiarism Checker</h1>
+        <div class="upload-form">
+            <form action="/check_image_plagiarism" method="post" enctype="multipart/form-data">
+                <input type="file" id="image-upload" name="image" accept="image/*">
+                <!-- Add an email input box -->
+                
+                <button type="submit">Check Plagiarism</button>
+            </form>
+        </div>
+
+        <!-- Container for displaying the uploaded image -->
+        <div class="image-container">
+            <h2>Uploaded Image</h2>
+            <img id="uploaded-img" src="{{ uploaded_image }}" alt="Uploaded Image">
+        </div>
+        {% if highest_similarity %}
+        <div class="result">
+            <p>Plagiarism Percentage: {{ highest_similarity }}%</p>
+        </div>
+        <!-- Container for displaying the most similar image -->
+        <div class="image-container">
+            <h2>Most Similar Image</h2>
+            <img src="data:image/jpeg;base64, {{ most_similar_img_data }}" alt="Most Similar Image">
+        </div>
+        {% endif %}
+    </div>
+    <script>
+        // Get references to HTML elements
+        var fileInput = document.getElementById("image-upload");
+        var uploadedImage = document.getElementById("uploaded-img");
+
+        fileInput.addEventListener("change", function () {
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    uploadedImage.src = e.target.result;
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
+    </script>
+</body>
+</html>

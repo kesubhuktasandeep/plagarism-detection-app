@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Plagiarism Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .text-area {
+            resize: none; /* Disable textarea resizing */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Plagiarism Checker</h1>
+        <form method="POST" action="/check_plagiarism" enctype="multipart/form-data">
+            <label for="user_text_manual">Enter Text Manually:</label><br>
+            <textarea class="text-area" name="user_text_manual" rows="8" cols="80"></textarea>
+            <br>
+            <label for="file_upload">Upload a File (Text):</label>
+            <input type="file" name="file_upload">
+            <br>
+
+            <!-- New input box for email address -->
+            <label for="email">Enter Email Address:</label><br>
+            <input type="email" name="email" id="email" placeholder="example@example.com" >
+
+            <!-- Check plagiarism button with a checkbox -->
+            <label for="update_vectors">Update Vectors:</label>
+            <input type="checkbox" name="update_vectors" id="update_vectors" value="yes">
+
+
+            <input type="submit" value="Check Plagiarism">
+        </form>
+        {% if plagiarism_message %}
+        <div class="result">
+            <p>{{ plagiarism_message }}</p>
+        </div>
+        {% endif %}
+        
+        <!-- Add a div to display the highlighted text -->
+        {% if highlighted_text %}
+        <div class="highlighted-text">
+            <p>{{ highlighted_text|safe }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_signup.css') }}">
+    <title>Login/Signup</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form" id="login-form">
+        <div class="text">
+            LOGIN
+        </div>
+        <form>
+            <div class="field">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Email or Phone">
+            </div>
+            <div class="field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password">
+            </div>
+            <button>LOGIN</button>
+            <div class="link">
+                Not a member?
+                <a href="javascript:void(0);" onclick="showSignupForm()">Signup now</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="signup-form hidden" id="signup-form">
+        <div class="text">
+            SIGN UP
+        </div>
+        <form>
+            <div class="field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Full Name">
+            </div>
+            <div class="field">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Email or Phone">
+            </div>
+            <div class="field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password">
+            </div>
+            <button>SIGN UP</button>
+            <div class="link">
+                Already a member?
+                <a href="javascript:void(0);" onclick="showLoginForm()">Login now</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function showSignupForm() {
+            document.getElementById("login-form").classList.add("hidden");
+            document.getElementById("signup-form").classList.remove("hidden");
+        }
+
+        function showLoginForm() {
+            document.getElementById("signup-form").classList.add("hidden");
+            document.getElementById("login-form").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>

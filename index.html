@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <title>Your Website</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="#" class="logo">
+                <img src="https://herobot.app/wp-content/uploads/2022/11/AI-bot-1.jpg" alt="AI Icon">
+                <span>Plagiarism Checker</span>
+            </a>
+        </div>
+        <ul class="navigation">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="signup.html">Login/Signup</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section id="home">
+        <div class="description-box">
+            <li>We're dedicated to helping you maintain the integrity of your content.</li>
+            <li>Our platform is designed to assist students, professionals, and content creators in ensuring the originality of their work</li>
+        </div>
+        
+    </section>
+    <section id="about">
+        <div class="description-box">
+            <p>"Why Choose Text and Image Plagiarism Checker</p>
+            <li> Accuracy and Precision</li>
+            <li> User-Friendly Interface</li>
+            <li> Instant Results</li>
+            <li> Multiple Languages Supported</li>
+            
+        </div>
+        <!-- Content for the About section goes here -->
+    </section>
+    <section id="Login">
+        <!-- Content for the Work section goes here -->
+    </section>
+    <section id="contact">
+        <!-- Content for the Contact section goes here -->
+    </section>
+
+    <button class="explore explore-button">
+        Explore
+        <span class="icon-right"></span>
+        <span class="icon-right after"></span>
+    </button>
+
+    <div class="vertical-align">
+        <a href="text_plagiarism.html" class="button textPlagiarism">Text Plagiarism</a>
+        <a href="image_plagiarism.html" class="button imagePlagiarism">Image Plagiarism</a>
+        <a href="#" class="button videoPlagiarism">Video Plagiarism</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const exploreButton = document.querySelector(".explore");
+            const textPlagiarismButton = document.querySelector(".textPlagiarism");
+            const imagePlagiarismButton = document.querySelector(".imagePlagiarism");
+            const videoPlagiarismButton = document.querySelector(".videoPlagiarism");
+    
+            let isButtonsVisible = false;
+    
+            exploreButton.addEventListener("click", () => {
+                if (isButtonsVisible) {
+                    textPlagiarismButton.style.display = "none";
+                    imagePlagiarismButton.style.display = "none";
+                    videoPlagiarismButton.style.display = "none";
+                } else {
+                    textPlagiarismButton.style.display = "block";
+                    imagePlagiarismButton.style.display = "block";
+                    videoPlagiarismButton.style.display = "block";
+                }
+    
+                isButtonsVisible = !isButtonsVisible;
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const homeButton = document.querySelector("li a[href='#home']");
+            const aboutButton = document.querySelector("li a[href='#about']");
+            const homeDescriptionBox = document.querySelector("#home .description-box");
+            const aboutDescriptionBox = document.querySelector("#about .description-box");
+
+            homeButton.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent the default link behavior
+                homeDescriptionBox.classList.toggle("show-description");
+                aboutDescriptionBox.classList.remove("show-description");
+            });
+
+            aboutButton.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent the default link behavior
+                aboutDescriptionBox.classList.toggle("show-description");
+                homeDescriptionBox.classList.remove("show-description");
+            });
+        });
+
+        
+
+    </script>
+    
